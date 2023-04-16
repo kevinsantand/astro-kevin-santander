@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Kevin SANTANDER" description="About Kevin SANTANDER">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+				<img
+					width="500"
+					height="500"
+					src="/assets/outside.webp"
+					alt="kevin Outside"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>I am Kevin, a freelance web developer specializing in custom website design.<br/> With my experience
+					and technical expertise, I am able to create modern and high-performing websites to meet the specific
+					needs of my clients.</p><br/>
+
+					<p>As a freelancer, I am passionate about my work and enjoy tackling challenges to help my clients
+					achieve their goals.<br/> My customized approach allows me to provide tailored solutions to their needs,
+					whether it's a simple website, an online store, or a complex web platform.</p><br/>
+					
+					<p>I am also very mindful of meeting deadlines and delivering quality work.<br/> By working with me, 
+					my clients can be assured of receiving quality service while benefiting from great flexibility
+					and transparent communication.</p><br/>
+					
+					<p>I am confident that my skills as a freelance developer can help businesses achieve their online goals.<br/>
+					If you are looking for a competent and passionate web developer for your project, do not hesitate
+					to contact me.</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>Graduate Développeur Mobile IOS
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<h6>Frontend</h6>
+					<p>Angular, Javascript, TypeScript, Hugo, Gatsby, Astro, Tailwind, Bootstrap	</p>
+					<h6>Backend</h6>
+					<p>Symfony, Golang, Php</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
